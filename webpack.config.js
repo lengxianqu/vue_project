@@ -1,30 +1,40 @@
-var path = require('path');
-//自动注入js脚本
-var htmlWP = require('html-webpack-plugin');
+2// 这个文件是webpack工具的配置文件，可以使用node的各种内置模块和写法
 
-//nodejs语法，运行在Node环境中
+
+// 这是node的内置模块，可以直接导入使用
+const path = require('path');
+// 这个插件需要我们创建实例来使用，所以必须导入进来
+const htmlWebpackPlugin = require('html-webpack-plugin');
+
+// 导出一个配置对象，webpack在启动时会根据配置内容进行打包
 module.exports = {
-    //入口文件，打包app.js，打包后的文件输出到dist目录中，起名为build.js
+
+    // 打包的入口文件
     entry: './src/js/main.js',
+
+    // 打包后文件输出
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'build.js'
+        filename: 'buld.js'
     },
 
-    // 插件配置，这里让构建好的js自动插入到index.html中的body元素
+    // 文件额外处理插件配置
     plugins: [
-        new htmlWP({
-            template: './src/index.html', //src中的源文件
-            filename: 'index.html', //dist中打包生成的新文件
-            inject: 'body', //注入脚本的位置
+
+        new htmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+            inject: 'body'
         })
+
     ],
 
-    resolve:{alias:{'vue':'vue/dist/vue.js'}},
-    //配置不同类型文件模块的加载,使用第三方插件
     module: {
+
+        // 默认webpack只支持js模块打包，通过这里的loader配置让webpack能够把更多类型的文件转成js模块打包
         rules: [
-            //配置css文件模块
+
+            // css，先打包为js模块。然后自动执行生效
             {
                 test: /\.css$/,
                 use: [
@@ -33,63 +43,59 @@ module.exports = {
                 ]
             },
 
-            //配置less文件
+            // less，先解析，然后打包为js模块。然后自动执行生效
             {
                 test: /\.less$/,
                 use: [
                     'style-loader',
                     'css-loader',
-                    'less-loader' //倒序执行
+                    'less-loader'
                 ]
             },
 
-            //配置模板文件（html)
+            // html，把模版变成js模版导出字符串
             {
-                test: /\.(tpl|html|template)$/,
+                test: /\.tpl$/,
                 use: [
                     'html-loader'
                 ]
             },
 
-            //配置图片文件模块
+            // 图片，先压缩，然后打包成js模块，其中小图片会转成base64，大图片仍然为url引用
             {
-                test: /\.(png|jpg|gif|svg|ttf)$/,
+                test: /\.(png|jpg|gif|ttf)$/,
                 use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10240 //如果文件小于10kb，那么打包到js中，否则还是url形式引入
-                        }
-                    },
-                    'image-webpack-loader'
+                    // 大约小于10kb的图片变成base64编码继承到js中，比较大的图片仍然以url方式引入
+                    { loader: 'url-loader', options: { limit: 10000 } }
+                    // 'image-webpack-loader'
                 ]
             },
 
-            //配合解析es6为es5
+            // 转换js脚本为es5语法
             {
                 test: /\.js$/,
+                // 这里面的js是第三方的，一般都是打包或解析好的文件，
+                // 我们不需要进行二次处理了，所以排除掉，可以提高我们打包的效率
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
                             presets: ['es2015'],
                             plugins: ['transform-runtime']
-                        }
+                        },
+                        
                     }
-                ],
-                exclude: /node_modules/
+                ]
             },
 
-            //添加对vue模块打包的支持
+            // 配置vue文件的解析转换
             {
                 test: /\.vue$/,
                 use: [
                     'vue-loader'
                 ]
             }
-
         ]
     }
-
-
-}
+};
