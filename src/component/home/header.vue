@@ -1,15 +1,16 @@
 <template>
-   <header>
-      <p>这是app的头部</p>
-  </header> 
+   <header class="header" >
+       <mt-header fixed title="微商"></mt-header>
+       
+   </header>
 </template>
 <script>
 export default {
   
 }
 </script>
-<style>
-
+<style lang="less">
+    
 </style>
 
 
