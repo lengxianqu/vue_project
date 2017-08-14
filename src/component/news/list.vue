@@ -1,17 +1,18 @@
 <template>
     <section class="list">
+        <v-title :content="title"></v-title>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="(v,i) in list" :key="v.id">
-                <a href="javascript:;">
+                <router-link :to="'/news/details/' + v.id">
                     <img class="mui-media-object mui-pull-left" :src="v.img_url">
                     <div class="mui-media-body">
                         <p class="mui-ellipsis">{{v.title}}</p>
                         <div class="list_item">
-                            <p>创建时间:{{v.add_time}}</p>
+                            <p>创建时间:{{v.add_time | formatDate('yyyy-mm-dd')}}</p>
                             <p>点击量：{{v.click}}</p>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
     </section>
@@ -19,10 +20,12 @@
 
 <script>
 import config from '../../js/config.js';
+import Ctitle from '../common/title.vue';
 export default {
     data:function() {
         return {
-            list:[]
+            list:[],
+            title:'新闻资讯'
         }
     },
     methods:{
@@ -35,6 +38,10 @@ export default {
     },
     created() {
         this.getNews()
+    },
+
+    components:{
+        'v-title':Ctitle
     }
 }
 </script>

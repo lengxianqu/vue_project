@@ -2,8 +2,23 @@
 const domain = 'http://139.199.192.48:8888';
 //暴漏一个对象
 export default {
-    domain: domain,
+    // domain: domain,
+    imgDomain: 'http://ofv795nmp.bkt.clouddn.com/',
+    //新闻
     newsList:domain+ '/api/getnewslist',
-    newsDetails:domain + '/api/getnew'
+    newsDetails:domain + '/api/getnew/',
+
+    //评论
+    commentPut:domain + '/api/postcomment/',
+    commentList:domain + '/api/getcomments/',
+
+    // 图片
+    photoCategoryList:domain + '/api/getimgcategory',
+    photoList:domain + '/api/getimages/',
+
+    //图片详情
+    PhotoDetailsInfo:domain + '/api/getimageInfo/',
+    Photohumimages:domain + '/api/getthumimages/'
+
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="index">
       <v-swipe></v-swipe>
       <v-nav></v-nav>
   </section>
@@ -16,6 +16,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+  .index {
+    padding-top:40px;
+    padding-bottom:50px;
+  }
 </style>
