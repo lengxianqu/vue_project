@@ -1,14 +1,14 @@
 <template>
     <footer>
         <nav class="mui-bar mui-bar-tab">
-            <a class="mui-tab-item mui-active" href="#tabbar">
+            <router-link to="/index" class="mui-tab-item mui-active">
                 <span class="mui-icon mui-icon-home"></span>
                 <span class="mui-tab-label">首页</span>
-            </a>
-            <a class="mui-tab-item" href="#tabbar-with-chat">
+            </router-link>
+            <router-link to="/goods/list" class="mui-tab-item">
                 <span class="mui-icon mui-icon-extra mui-icon-extra-gift"></span>
                 <span class="mui-tab-label">商品购买</span>
-            </a>
+            </router-link>
             <a class="mui-tab-item" href="#tabbar-with-contact">
                 <span class="mui-icon mui-icon-extra mui-icon-extra-express">
                     <span class="mui-badge">0</span>

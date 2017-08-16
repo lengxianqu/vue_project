@@ -5,6 +5,8 @@ import CnewsList from '../component/news/list.vue';
 import CnewsDetails from '../component/news/details.vue';
 import CphotoList from '../component/photo/list.vue';
 import CphotoDetails from '../component/photo/details.vue';
+import CgoodsList from '../component/goods/list.vue';
+import CgoodsDetails from '../component/goods/details.vue';
 export default new VueRouter({
     routes:[
         { path: '/', redirect: '/index' },
@@ -14,6 +16,10 @@ export default new VueRouter({
         { path: '/news/details/:id',component:CnewsDetails},
         // 图片分享
         { path: '/photo/list/:id',component:CphotoList},
-        { path: '/photo/details/:id',component:CphotoDetails}
+        { path: '/photo/details/:id',component:CphotoDetails},
+
+        //商品详情
+        { path:'/goods/list',component:CgoodsList},
+        { path:'/goods/details/:id',component:CgoodsDetails,name:'goodsD'}
     ]
 })

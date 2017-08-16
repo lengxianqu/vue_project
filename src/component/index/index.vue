@@ -1,24 +1,44 @@
 <template>
   <section class="index">
-      <v-swipe></v-swipe>
-      <v-nav></v-nav>
+    <v-swipe :list="list"></v-swipe>
+    <v-nav></v-nav>
   </section>
 </template>
 
 <script>
-import Cswipe from './swipe.vue';
+import Cswipe from '../common/swipe.vue';
 import Cnav from './nav.vue';
 export default {
-  components:{
-    'v-swipe':Cswipe,
-    'v-nav':Cnav
-  }
+  data() {
+    return {
+      list: []
+    }
+  },
+  components: {
+    'v-swipe': Cswipe,
+    'v-nav': Cnav
+  },
+  methods: {
+    //获取轮播图数据
+    getLunbo() {
+      let url = 'http://139.199.192.48:8888/api/getlunbo';
+      this.$http.get(url).then(rep => {
+        console.log(rep);
+        if (rep.body.status == 0) {
+          this.list = rep.body.message;
+        }
+      })
+    }
+  },
+  created: function () {
+    this.getLunbo();
+  },
 }
 </script>
 
 <style lang="less">
-  .index {
-    padding-top:40px;
-    padding-bottom:50px;
-  }
+.index {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
 </style>

@@ -10,12 +10,15 @@ import 'mint-ui/lib/style.css';
 //导入MUI的样式，因为MUI这个框架不是vue插件，是原生js写的，里面的代码不兼容es5的严格模式，不使用，只用他的样式
 import 'mui/dist/css/mui.css';
 //引入mui的扩展图标
-import 'mui/examples/hello-mui/css/icons-extra.css'
+import 'mui/examples/hello-mui/css/icons-extra.css';
+
 //手动启动插件
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(MintUI);
-
+//图片预览插件
+import ImgPreview from '../component/plugin/img_preview_install.js';
+Vue.use(ImgPreview);
 //导入我们自己的东西
 import './filter.js';
 //导入组件

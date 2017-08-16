@@ -4,9 +4,7 @@
             <router-link to="/news/list">
                 <span class="mui-icon-extra mui-icon-extra-new"></span>
                 <div class="mui-media-body">新闻资讯</div>
-            </router-link>
-                
-            
+            </router-link>    
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
             <router-link to="/photo/list/0">
@@ -17,47 +15,34 @@
             </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
-                <span class="mui-icon mui-icon-chatbubble"></span>
-                <div class="mui-media-body">Chat</div>
-            </a>
-        </li>
+             <router-link to="/goods/list">
+                <span class="mui-icon mui-icon-extra mui-icon-extra-gift"></span>
+                <div class="mui-media-body">商品购买</div>
+                </router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
-                <span class="mui-icon mui-icon-location"></span>
-                <div class="mui-media-body">location</div>
-            </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
+            <router-link to="/">
                 <span class="mui-icon mui-icon-search"></span>
-                <div class="mui-media-body">Search</div>
-            </a>
-        </li>
+                <div class="mui-media-body">搜一搜</div>
+                </router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
+            <router-link to="/">
                 <span class="mui-icon mui-icon-phone"></span>
-                <div class="mui-media-body">Phone</div>
-            </a>
-        </li>
+                <div class="mui-media-body">联系我们</div>
+                </router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
+            <router-link to="/">
                 <span class="mui-icon mui-icon-gear"></span>
-                <div class="mui-media-body">Setting</div>
-            </a>
-        </li>
+                <div class="mui-media-body">设置</div>
+                </router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
+            <router-link to="/">
                 <span class="mui-icon mui-icon-info"></span>
-                <div class="mui-media-body">about</div>
-            </a>
-        </li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-            <a href="#">
-                <span class="mui-icon mui-icon-more"></span>
-                <div class="mui-media-body">more</div>
-            </a>
-        </li>
+                <div class="mui-media-body">关于我们</div>
+                </router-link></li>
+        
+        
+       
+        
     </ul>
 </template>
 <script>

@@ -18,7 +18,12 @@ export default {
 
     //图片详情
     PhotoDetailsInfo:domain + '/api/getimageInfo/',
-    Photohumimages:domain + '/api/getthumimages/'
+    Photohumimages:domain + '/api/getthumimages/',
+
+    //商品
+    goodsList:domain + '/api/getgoods?pageindex=',
+    goodsDswipe:domain + '/api/goods/getdesc/',
+    goodsPrice: domain + '/api/goods/getinfo/',  // 商品价格相关信息
 
 
 }

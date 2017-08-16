@@ -9,10 +9,10 @@
                 <div class="mui-card-content-inner">
                     <ul class="mui-table-view mui-grid-view">
                         <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="(v,i) in humImages" :key="i" >
-                            <a href="#">
-                                <img :src="v.src" />
+                           
+                                <img v-preview="v.src" :src="v.src" />
                                 <!-- <div class="mui-media-body">幸福就是可以一起睡觉</div> -->
-                            </a>
+                            
                         </li>               
                     </ul>
                 </div>
