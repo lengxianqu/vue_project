@@ -7,6 +7,7 @@ import CphotoList from '../component/photo/list.vue';
 import CphotoDetails from '../component/photo/details.vue';
 import CgoodsList from '../component/goods/list.vue';
 import CgoodsDetails from '../component/goods/details.vue';
+import CshopcartList from '../component/shopcart/list.vue';
 export default new VueRouter({
     routes:[
         { path: '/', redirect: '/index' },
@@ -20,6 +21,9 @@ export default new VueRouter({
 
         //商品详情
         { path:'/goods/list',component:CgoodsList},
-        { path:'/goods/details/:id',component:CgoodsDetails,name:'goodsD'}
+        { path:'/goods/details/:id',component:CgoodsDetails,name:'goodsD'},
+
+        //购物车
+        { path:'/shopcart/list',component:CshopcartList}
     ]
 })

@@ -22,8 +22,12 @@ export default {
 
     //商品
     goodsList:domain + '/api/getgoods?pageindex=',
-    goodsDswipe:domain + '/api/goods/getdesc/',
-    goodsPrice: domain + '/api/goods/getinfo/',  // 商品价格相关信息
+    goodsDetails:domain + '/api/goods/getdesc/', //商品图文介绍
+    goodsPrice: domain + '/api/goods/getinfo/',  // 商品价格相关信息,
+
+    //购物车
+    shopcartList: domain + '/api/goods/getshopcarlist/'
+
 
 
 }
