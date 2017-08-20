@@ -8,6 +8,8 @@ import CphotoDetails from '../component/photo/details.vue';
 import CgoodsList from '../component/goods/list.vue';
 import CgoodsDetails from '../component/goods/details.vue';
 import CshopcartList from '../component/shopcart/list.vue';
+import CuserLogin from '../component/user/login.vue';
+import CshopcartOrder from '../component/shopcart/order.vue';
 export default new VueRouter({
     routes:[
         { path: '/', redirect: '/index' },
@@ -24,6 +26,11 @@ export default new VueRouter({
         { path:'/goods/details/:id',component:CgoodsDetails,name:'goodsD'},
 
         //购物车
-        { path:'/shopcart/list',component:CshopcartList}
+        { path:'/shopcart/list',component:CshopcartList},
+        { path: '/shopcart/order', component: CshopcartOrder, name: 'shopcartD' },
+
+
+        // 用户
+        { path: '/user/login', component: CuserLogin, name: 'login' },
     ]
 })
